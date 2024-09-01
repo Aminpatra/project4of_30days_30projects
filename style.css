@@ -1,0 +1,42 @@
+*, *::after, *::before {margin: 0;padding: 0;box-sizing: border-box;}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 1px);
+  height: auto;
+  background-color: aliceblue;
+}
+
+#btn {
+  font-family: cursive;
+  font-weight: bold;
+  font-size: 1.2rem;
+  padding: 0.7em 1.2em;
+  border: 1px solid black;
+  border-radius: 10px;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+#btn::before {
+  content: "";
+  width: 0px;
+  height: 0px;
+  border-radius: 50%;
+  background-color: salmon;
+  position: absolute;
+  top: var(--topPosition);
+  left: var(--leftPosition);
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  transition: width .5s ease-in-out, height .5s ease-in-out;
+}
+
+#btn:hover::before {
+  width: 350px;
+  height: 350px;
+}
